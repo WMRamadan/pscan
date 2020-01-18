@@ -9,7 +9,7 @@ A simple port scanner created in python.
 - Specify port timeout
 
 ## Installation
-- Install needed requirements application:
+- Install needed requirements:
 ```
 pip install -r requirements.txt
 ```
