@@ -20,14 +20,14 @@ def main(argv):
     subprocess.call('clear', shell=True)
 
     # Remote host input
-    remoteServer    = raw_input("Enter a host to scan: ")
+    remoteServer    = input("Enter a host to scan: ")
     # Translate host name to IPV4 address
     remoteServerIP  = socket.gethostbyname(remoteServer)
 
     # Print a banner with information on which host we are about to scan
-    print "-" * 60
-    print "Please wait, scanning remote host", remoteServerIP
-    print "-" * 60
+    print ("-" * 60)
+    print ("Please wait, scanning remote host", remoteServerIP)
+    print ("-" * 60)
 
     # Check what time the scan started
     t1 = datetime.now()
@@ -39,21 +39,21 @@ def main(argv):
             sock.settimeout(timeOut)
             result = sock.connect_ex((remoteServerIP, port))
             if result == 0:
-                print colored("Port {:<10d}=>{:>12s}".format(port, 'Open'), 'green')
+                print (colored("Port {:<10d}=>{:>12s}".format(port, 'Open'), 'green'))
             else:
-                print colored("Port {:<10d}=>{:>12s}".format(port, 'Closed'), 'red')
+                print (colored("Port {:<10d}=>{:>12s}".format(port, 'Closed'), 'red'))
             sock.close()
     # Added escape message on keyboard interrupt when using CTRL+C
     except KeyboardInterrupt:
-        print "Exiting pscan"
+        print ("Exiting pscan")
         sys.exit()
     # We also put in some error handling for catching errors
     except socket.gaierror:
-        print 'Hostname could not be resolved. Exiting'
+        print ('Hostname could not be resolved. Exiting')
         sys.exit()
 
     except socket.error:
-        print "Couldn't connect to server"
+        print ("Couldn't connect to server")
         sys.exit()
 
     # Checking what time the scan completed
@@ -63,7 +63,7 @@ def main(argv):
     total =  t2 - t1
 
     # Print scan time information to screen
-    print 'Scanning Completed in: ', total
+    print ('Scanning Completed in: ', total)
 
 if __name__ == "__main__":
     main(sys.argv[1:])

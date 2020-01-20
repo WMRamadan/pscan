@@ -1,7 +1,7 @@
 # PScan
 
 A simple port scanner created in python. 
-#### Language: Python 2.7.10
+#### Language: Python 3.7.4
 
 ## Features
 - Scan host by name and/or ip
@@ -11,11 +11,11 @@ A simple port scanner created in python.
 ## Installation
 - Install needed requirements:
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 - Run python script:
 ```
-python pscan.py
+python3 pscan.py
 ```
 
 ## Todo
